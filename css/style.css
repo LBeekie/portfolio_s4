@@ -1,0 +1,234 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+
+.main-container {
+    height: 100vh;
+}
+
+.welcome-container {
+    background-image: url("../images/background.jpg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    
+}
+
+.welcome {
+    width: inherit;
+    height: inherit;
+}
+
+.text {
+    margin: 0;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+}
+
+.text h1 {
+    margin: 0;
+    font-size: 70px;
+    color: white;
+}
+
+.text h2 {
+    font-size: 40px;
+    margin: 0;
+    color: white;
+}
+
+@-webkit-keyframes arrow {
+  from {bottom: 60px;}
+  to {bottom: 40px;}
+}
+
+/* Standard syntax */
+@keyframes arrow {
+  from {bottom: 60px;}
+  to {bottom: 40px;}
+}
+
+.arrow-container {
+    bottom: 54px;
+    position: absolute;
+    left: calc(50% - 30px);
+    cursor: pointer;
+    height: 40px;
+    width: 60px;
+    animation-name: arrow;
+    animation-duration: 1.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
+}
+
+.arrow {
+    -webkit-transform: rotate(45deg) translateY(-15px) translateX(5px);
+    -moz-transform: rotate(45deg) translateY(-15px) translateX(5px);
+    -ms-transform: rotate(45deg) translateY(-15px) translateX(5px);
+    -o-transform: rotate(45deg) translateY(-15px) translateX(5px);
+    transform: rotate(45deg) translateY(-15px) translateX(5px);
+    border-bottom: 1.3px solid #ffffff;
+    border-right: 1.3px solid #ffffff;
+    bottom: 5px;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.placeholder {
+    height: 100vh;
+}
+
+.nav-container {
+    width: 100%;
+    height: 70px;
+    position: relative;
+    background-color: #333;
+    z-index: 99;
+    -webkit-box-shadow: 0px 5px 23px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 23px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 23px -7px rgba(0,0,0,0.75)
+}
+
+.nav {
+    position: relative;
+    padding: 10px 40px;
+}
+
+.nav h1 {
+    margin: 0;
+    position: relative;
+}
+
+.nav-fixed {
+    position: fixed;
+}
+
+.nav-placeholder {
+    height: 100px;
+}
+
+.flex-container {
+    height: 1000px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    background-color: #D3CFC4;
+}
+
+.flex-item {
+    width: 25%;
+    height: 25vw;
+}
+
+.flex-item h1 {
+    margin: 0;
+    position: relative;
+
+}
+
+.img-wrap {
+    position: absolute;
+    width: 25%;
+    height: 25vw;
+}
+
+.img {
+    height: 25vw;
+    margin: 0;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.details-wrap {
+    position: absolute;
+    width: 25%;
+    height: 25vw;
+}
+
+.details-back {
+    position: absolute;
+    width: 100%;
+    height: 25vw;
+    opacity: 0;
+    transition: .2s ease;
+    background-color: #000000;
+}
+
+.flex-item:hover .details-back {
+    opacity: 0.3;
+}
+
+.flex-item:hover .details {
+    opacity: 1;
+}
+
+.details {
+    color: white;
+    position: absolute;
+    width: 70%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);;
+    -ms-transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: .2s ease;
+}
+
+.details h1 {
+    font-size: 24px;
+}
+
+.details p {
+    font-size: 16px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  color: #0084FF;
+}
+
+.name {
+    float: left;
+    color: white;
+    font-size: 40px;
+}
+
+.active {
+  background-color: #4CAF50;
+}
