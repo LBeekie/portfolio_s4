@@ -10,7 +10,7 @@
     ?>
 </head>
 
-<body onload="getArticles('')">
+<body>
     <div class="main-container">
         <div class="welcome-container">
             <div class="welcome">
@@ -39,73 +39,38 @@
             </div>
         </div>
         <div id="nav-placeholder"></div>
-        <div class="flex-container" id="flex-container">
-            <script>
-            function getArticles(sql) {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        var articles = JSON.parse(this.responseText);;
-                            console.log(articles);
-                            console.log(articles.length);
-                        var list = document.getElementById("flex-container");
-                           while (list.hasChildNodes()) {
-                              list.removeChild(list.firstChild);
-                           }
+        <div class="flex-container">
+            <?php
+            $articles = sqlSelect("SELECT * FROM article");
+            //print_r ($articles);
+            foreach ($articles as $article) {
+                $id = $article['id'];
+                $image = sqlSelect("SELECT src FROM image WHERE article_id = ". $id ." LIMIT 1");
+                //print_r ($image);
+                //$image = $image['src'];
+                $images = $image[0]['src'];
+                $title = $article['title'];
+                $subText = $article['subText'];
+                ?>
+                <a class="flex-item" href="subpage.php?id=<?php echo $id ?>">
+                    <div class="img-wrap">
+                        <div class="img" style="background-image: url('http://beekie.nu/portfolio/<?php echo $images?>');">
                         
-                        for (i = 0; i < articles.length; i++) {
-                            //console.log(articles[i]['id']);
-                            var flex_container = document.getElementById("flex-container")
-                            var flex_item = document.createElement("a");
-                            flex_item.setAttribute("class", "flex-item");
-                            flex_item.setAttribute("href", "subpage.php?id=" + articles[i]['id']);
-                            flex_container.appendChild(flex_item);
+                        </div>
+                    </div>
+                    <div class="details-wrap">
+                        <div class="details-back"></div>
+                        <div class="details">
+                            <h1><?php echo $title ?></h1>
+                            <p><?php echo $subText ?></p>                       
+                        </div>
 
-                            var img_wrap = document.createElement("div");
-                            img_wrap.setAttribute("class", "img-wrap");
-                            flex_item.appendChild(img_wrap);
-
-                            if (articles[i]['cover_img'] == '') {
-                                var articleIMG = "images/placeholder.png";
-                            }else {
-                                var articleIMG = articles[i]['cover_img'];
-                            }
-
-                            var img = document.createElement("div");
-                            img.setAttribute("class", "img");
-                            img.setAttribute("style", "background-image: url(http://beekie.nu/portfolio/"+ articleIMG +")");
-                            img_wrap.appendChild(img);
-
-                            var details_wrap = document.createElement("div");
-                            details_wrap.setAttribute("class", "details-wrap");
-                            flex_item.appendChild(details_wrap);
-
-                            var details_back = document.createElement("div");
-                            details_back.setAttribute("class", "details-back");
-                            details_wrap.appendChild(details_back);
-
-                            var details = document.createElement("div");
-                            details.setAttribute("class", "details");
-                            details_wrap.appendChild(details);
-
-                            var detailsH1 = document.createElement("h1");
-                            var detailsH1Text = document.createTextNode(articles[i]['title']);
-                            detailsH1.appendChild(detailsH1Text);
-                            details.appendChild(detailsH1);
-
-                            var detailsP = document.createElement("p");
-                            var detailsPText = document.createTextNode(articles[i]['subText']);
-                            detailsP.appendChild(detailsPText);
-                            details.appendChild(detailsP);
-                        }
-                    }
-                };
-                xhttp.open("POST", "functions/selectArticles.php", true);
-                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhttp.send("sql=" + sql);
+                    </div>
+                    
+                </a>
+                <?php
             }
-            
-            </script>
+            ?>
         </div>
     </div>
     
