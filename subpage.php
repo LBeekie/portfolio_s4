@@ -42,6 +42,9 @@
         <div class="close-container">
             <a href="http://beekie.nu/portfolio" class="close"></a>
         </div>
+        
+        <?php if($images[0] != null) { ?>
+        
         <div class="slide-container">
             <?php
                 $imageID = 1;
@@ -71,6 +74,7 @@
                 ?>
             </div>
         </div>
+        <?php } ?>
         <div class="info-container">
             <div class="title">
                 <h1><?php echo $title?></h1>

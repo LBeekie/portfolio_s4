@@ -4,6 +4,20 @@ html, body {
     font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
 }
 
+.hide {
+    display: none;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 .main-container {
     height: 100vh;
 }
@@ -118,6 +132,30 @@ html, body {
 
 .nav-placeholder {
     height: 100px;
+}
+
+.nav-left {
+    float: left;
+}
+
+.nav-right {
+    float: right;
+}
+
+.filter-icon {
+    fill: #D3CFC4;
+}
+
+.filter-modal {
+    background-color: white;
+    position: absolute;
+    right: 40px;
+    width: 300px;
+    margin-top: 10px;
+}
+
+.search-icon {
+    fill: #D3CFC4
 }
 
 .flex-container {
